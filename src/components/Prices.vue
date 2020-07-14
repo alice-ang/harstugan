@@ -1,10 +1,11 @@
 <template>
 <!-- Vad är läggn?-->
   <div class="price-tabs">
-      <h1>Priser</h1>
+      <h1><i class="fas fa-cut"></i> Priser</h1>
       <div class="bar">
+        <div  class="price-btn" @click="togglePrices"> Se alla priser</div>
           <ul>
-              <li v-for="category in categories" :key="category.name" @click="switchTab($event, category.id)" class="tab-link">{{category.name}}</li>
+              <li v-for="category in categories" :key="category.name" @click="switchTab($event, category.id)" class="tab-link"> {{category.name}}</li>
           </ul>
       </div>
       <div id="haircut" class="tab">
@@ -40,19 +41,84 @@
           </table>
       </div>
         <div id="perm" class="tab">
-          <h1>Permanent</h1>
+            <table>
+              <thead>
+                  <tr>
+                      <th>Typ</th>
+                      <th>Pris</th>
+                  </tr>
+              </thead>
+            <tbody v-for="(coloring, index) in prices[2]" :key="coloring[index]">
+                <tr v-for="price in coloring" :key="price.type">
+                    <td>{{price.type}}</td>
+                    <td> {{price.price}};-</td>
+                </tr>
+            </tbody>
+          </table>
       </div>
         <div id="wash" class="tab">
-          <h1>Tvätt</h1>
+            <table>
+              <thead>
+                  <tr>
+                      <th>Typ</th>
+                      <th>Pris</th>
+                  </tr>
+              </thead>
+            <tbody v-for="(coloring, index) in prices[3]" :key="coloring[index]">
+                <tr v-for="price in coloring" :key="price.type">
+                    <td>{{price.type}}</td>
+                    <td> {{price.price}};-</td>
+                </tr>
+            </tbody>
+          </table>
       </div>
       <div id="prom" class="tab">
-          <h1>Uppsättningar</h1>
+            <table>
+              <thead>
+                  <tr>
+                      <th>Typ</th>
+                      <th>Pris</th>
+                  </tr>
+              </thead>
+            <tbody v-for="(coloring, index) in prices[4]" :key="coloring[index]">
+                <tr v-for="price in coloring" :key="price.type">
+                    <td>{{price.type}}</td>
+                    <td> {{price.price}};-</td>
+                </tr>
+            </tbody>
+          </table>
       </div>
       <div id="brows" class="tab">
-          <h1>Bryn</h1>
+                  <table>
+              <thead>
+                  <tr>
+                      <th>Typ</th>
+                      <th>Pris</th>
+                  </tr>
+              </thead>
+            <tbody v-for="(coloring, index) in prices[5]" :key="coloring[index]">
+                <tr v-for="price in coloring" :key="price.type">
+                    <td>{{price.type}}</td>
+                    <td> {{price.price}};-</td>
+                </tr>
+            </tbody>
+          </table>
       </div>
       <div id="extentions" class="tab">
-          <h1>Hårförlängning</h1>
+                  <table>
+              <thead>
+                  <tr>
+                      <th>Typ</th>
+                      <th>Pris</th>
+                  </tr>
+              </thead>
+            <tbody v-for="(coloring, index) in prices[6]" :key="coloring[index]">
+                <tr v-for="price in coloring" :key="price.type">
+                    <td>{{price.type}}</td>
+                    <td> {{price.price}};-</td>
+                </tr>
+            </tbody>
+          </table>
       </div>
   </div>
 </template>
@@ -65,11 +131,11 @@ export default {
             categories: [
                 {
                     name: 'Klippning',
-                    id: 'haircut'
+                    id: 'haircut',
                 },
                 {
                     name: 'Färgning',
-                    id: 'coloring'
+                    id: 'coloring',
                 },
                                 {
                     name: 'Permanent',
@@ -92,8 +158,7 @@ export default {
                     id: 'extentions'
                 },   
             ],
-            prices: 
-            [
+            prices: [
                 {
                     haircuts: 
                         [
@@ -176,9 +241,74 @@ export default {
                     ]
                 },
                 {
+                    perms: [
+                        {
+                            type: 'Halvpermanent',
+                            price: 'från. 950'
+                        },
+                        {
+                            type: 'Permanent',
+                            price: 'från. 1100'
+                        }
+                    ]
+                },
+                {
+                    washes: [
+                        {
+                            type: 'Tvätt + läggn',
+                            price: '400'
+                        }, 
+                        {
+                            type: 'Tvätt och fön',
+                            price: '400'
+                        }
+                    ]
+                },
+                {
+                    proms: [
+                        {
+                            type: 'Baluppsättning' ,
+                            price: '950'
+                        }, 
+                        {
+                            type: 'Enklare Balfrisyr',
+                            price: '800'
+                        },
+                        {
+                            type: 'Bruduppsättning',
+                            price: 'från 2000'
+                        }
+                    ]
+                },
+                {
+                    brows: [
+                        {
+                            type: 'Färg av bryn',
+                            price: '200'
+                        },
+                        {
+                            type: 'Färg av fransar',
+                            price: '200'
+                        }, 
+                        {
+                            type: 'Ögonfärgpaket',
+                            price: '300'
+                        }, 
+                        {
+                            type: 'Brynplock',
+                            price: '150'
+                        }
+                    ]
+                },
+                {
                     extentions: [
                         {
-                            type: ''
+                            type: 'Hel',
+                            price: 'från 6000'
+                        }, 
+                        {
+                            type: 'Halv',
+                            price: 'från 4500'
                         }
                     ]
                 }
@@ -188,6 +318,15 @@ export default {
     },
 
     methods: {
+        togglePrices: ()=>{
+            const menu = document.querySelector('ul');
+            
+            if(menu.style.display === 'none'){
+             menu.style.display = 'flex';
+            } else {
+                menu.style.display = 'none';
+            }
+        },
         switchTab: (event, tabName) => {
             const tabs = document.getElementsByClassName('tab');
             for(let i = 0;  i < tabs.length; i++){
@@ -203,7 +342,7 @@ export default {
             }
             event.target.className += ' active';
             
-        }
+        },
     }
 }
 </script>
@@ -211,12 +350,20 @@ export default {
 <style scoped>
 .bar ul {
     background: red;
-    display: flex;
+    display: none;
     flex-direction: column;
     flex-wrap: wrap;
     list-style: none;
     justify-content: space-around;
-    margin: 0;
+    padding: 1em 0px 0px 0px;
+}
+.price-btn {
+    text-align: center;
+    display: block;
+    font-weight: bold;
+}
+.price-btn:hover {
+    text-decoration: underline;
 }
 .bar ul li {
     padding: 1em;
@@ -250,7 +397,11 @@ td, th {
 }
 @media screen and (min-width: 900px) {
     .bar ul {
-            flex-direction: row;
+        display: flex;
+        flex-direction: row;
+    }
+    .price-btn {
+        display: none;
     }
 }
 </style>
