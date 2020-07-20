@@ -132,14 +132,13 @@ export default {
 .home-page {
     overflow: hidden;
 }
-.test-carousel {
-}
 .active-slide {
     display: block !important;
 }
 .carousel-slide {
     max-width: 100%;
     display: none;
+    
 }
 .carousel-controls {
     color: white;
