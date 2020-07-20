@@ -1,9 +1,9 @@
 <template>
     <header>
         <nav>
-            <div class="logo">
-                <img src="../assets/img/loggor/harstuganlogo2vit.png" alt="logo" >
-            </div>
+                <div class="logo">
+                    <img src="../assets/img/loggor/harstuganlogo2vit.png" alt="logo" >
+                </div>
             <span id="responsive-btn">
                 <i class="fas fa-bars" @click="toggleMenu"></i>
             </span>
