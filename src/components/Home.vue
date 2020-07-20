@@ -128,7 +128,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.home-page {
+    overflow: hidden;
+}
 .test-carousel {
 }
 .active-slide {
@@ -172,7 +175,5 @@ export default {
     color: white;
     z-index: 500;
 }
-
-
 
 </style>
