@@ -37,15 +37,12 @@
       <div id="haircut" class="tab">
         <table>
               <thead>
-                  <tr>
-                      <th >Klippning</th>
-                      <th>Pris</th>
-                  </tr>
+                  <h1>Klippning</h1>
               </thead>
             <tbody v-for="(haircut, index) in prices[0]" :key="haircut[index]">
                 <tr v-for="price in haircut" :key="price.type">
-                    <td>{{price.type}}</td>
-                    <td> {{price.price}};-</td>
+                    <td>{{price.type}} </td>
+                    <td class="price"> {{price.price}};-</td>
                 </tr>
             </tbody>
           </table>
@@ -53,31 +50,25 @@
       <div id="coloring" class="tab">
         <table>
               <thead>
-                  <tr>
-                      <th>Färgning</th>
-                      <th>Pris</th>
-                  </tr>
+                  <h1>Färgning</h1>
               </thead>
             <tbody v-for="(coloring, index) in prices[1]" :key="coloring[index]">
                 <tr v-for="price in coloring" :key="price.type">
                     <td>{{price.type}}</td>
-                    <td> {{price.price}};-</td>
+                    <td class="price"> {{price.price}};-</td>
                 </tr>
             </tbody>
           </table>
       </div>
         <div id="perm" class="tab">
             <table>
-              <thead>
-                  <tr>
-                      <th>Permanent</th>
-                      <th>Pris</th>
-                  </tr>
+                <thead>
+                  <h1>Permanent</h1>
               </thead>
             <tbody v-for="(coloring, index) in prices[2]" :key="coloring[index]">
                 <tr v-for="price in coloring" :key="price.type">
                     <td>{{price.type}}</td>
-                    <td> {{price.price}};-</td>
+                    <td class="price"> {{price.price}};-</td>
                 </tr>
             </tbody>
           </table>
@@ -85,15 +76,12 @@
         <div id="wash" class="tab">
             <table>
               <thead>
-                  <tr>
-                      <th>Tvätt</th>
-                      <th>Pris</th>
-                  </tr>
+                  <h1>Tvätt</h1>
               </thead>
             <tbody v-for="(coloring, index) in prices[3]" :key="coloring[index]">
                 <tr v-for="price in coloring" :key="price.type">
                     <td>{{price.type}}</td>
-                    <td> {{price.price}};-</td>
+                    <td class="price"> {{price.price}};-</td>
                 </tr>
             </tbody>
           </table>
@@ -101,47 +89,38 @@
       <div id="prom" class="tab">
             <table>
               <thead>
-                  <tr>
-                      <th>Uppsättningar</th>
-                      <th>Pris</th>
-                  </tr>
+                  <h1>Uppsättningar</h1>
               </thead>
             <tbody v-for="(coloring, index) in prices[4]" :key="coloring[index]">
                 <tr v-for="price in coloring" :key="price.type">
                     <td>{{price.type}}</td>
-                    <td> {{price.price}};-</td>
+                    <td class="price"> {{price.price}};-</td>
                 </tr>
             </tbody>
           </table>
       </div>
       <div id="brows" class="tab">
-                  <table>
+        <table>
               <thead>
-                  <tr>
-                      <th>Bryn</th>
-                      <th>Pris</th>
-                  </tr>
+                  <h1>Bryn</h1>
               </thead>
             <tbody v-for="(coloring, index) in prices[5]" :key="coloring[index]">
                 <tr v-for="price in coloring" :key="price.type">
                     <td>{{price.type}}</td>
-                    <td> {{price.price}};-</td>
+                    <td class="price"> {{price.price}};-</td>
                 </tr>
             </tbody>
           </table>
       </div>
       <div id="extentions" class="tab">
-                  <table>
+            <table>
               <thead>
-                  <tr>
-                      <th>Hårförlängning</th>
-                      <th>Pris</th>
-                  </tr>
+                  <h1>Hårförlängning</h1>
               </thead>
             <tbody v-for="(coloring, index) in prices[6]" :key="coloring[index]">
                 <tr v-for="price in coloring" :key="price.type">
                     <td>{{price.type}}</td>
-                    <td> {{price.price}};-</td>
+                    <td class="price"> {{price.price}};-</td>
                 </tr>
             </tbody>
           </table>
@@ -391,7 +370,7 @@ export default {
     border-radius: 5px;
     padding: 1em;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 90%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -414,9 +393,9 @@ export default {
     padding: 1em 0px 0px 0px;
     background: #ededed;
     margin: 0;
-    
+    font-size: 1.1rem;
+    border-bottom: 2px solid var(--primary);
 }
-
 
 .price-btn {
     text-align: center;
@@ -435,6 +414,7 @@ export default {
 #categories li:hover  {
     cursor: pointer;
     font-weight: bold;
+    color: var(--primary);
 }
 .active {
     background-color: white;
@@ -450,21 +430,27 @@ export default {
 .table-container {
     width: 100%;
 }
+.price {
+    text-align: right;
+    font-weight: bold;
+}
 table {
     border-collapse: collapse;
     width: 100%;
+    font-size: 1.3em;
 }
 thead th{
     font-size: 1.3rem;
     background-color: var(--primary);
 }
 tr:hover {
-        background-color: #dddddd;
+        background-color: #f1f1f1;
 }
+
 td, th {
-      border: 1px solid var(--primary);
+    border-bottom: 1px solid var(--primary);
     text-align: left;
-    padding: 8px;
+    padding: 1em 0;
 }
 @media screen and (min-width: 900px) {
     #categories {
@@ -485,7 +471,5 @@ td, th {
     .image-wrapper {
     max-height: 50vh;
     }
-
-
 }
 </style>
