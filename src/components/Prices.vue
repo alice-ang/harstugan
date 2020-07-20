@@ -1,18 +1,44 @@
 <template>
 <!-- Vad är läggn?-->
+<!-- Tillägg för längre hår an axlöar-->
   <div class="price-tabs">
-      <h1><i class="fas fa-cut"></i> Priser</h1>
-      <div class="bar">
+              <div class="image-wrapper">
+            <img src="https://source.unsplash.com/1080x720/?hairdresser" alt="">
+            <div class="info">
+              <h2>Ring <span class="underline">0587-100 34</span> för att boka tid!</h2>
+              <p> <i class="fas fa-exclamation-circle"></i> EJ AVBOKAD TID DEBITERAS <br> TILLÄGG FÖR HÅR LÄNGRE ÄN AXLARNA 150:-</p>
+              <p>
+                    Avbokning av behandling måste ske 24 timmar före avtalad tid.
+                    75% debitering på ej avbokad/missad tid. För avbokning bör du ringa salongen eller skriv ett meddelande på vår facebook-sida.
+                    <br>
+                    MVH/ Hårstugan.
+                </p>
+          </div>
+        </div>
+      <!--<div class="container">
+          <div class="info">
+              <img src="https://source.unsplash.com/1920x1080/?hairdresser" alt="">
+              <h1>Ring <span class="underline">0587-100 34</span> för att boka tid!</h1>
+              <p>EJ AVBOKAD TID DEBITERAS <br>
+                    Avbokning av behandling måste ske 24 timmar före avtalad tid.
+                    75% debitering på ej avbokad/missad tid. För avbokning bör du ringa salongen eller skriv ett meddelande på vår facebook-sida.
+                    <br>
+                    MVH/ Hårstugan.
+                </p>
+          </div>
+      </div>-->
+      <div class="table-container">
+        <div class="bar">
         <div  class="price-btn" @click="togglePrices"> Se alla priser</div>
-          <ul>
-              <li v-for="category in categories" :key="category.name" @click="switchTab($event, category.id)" class="tab-link"> {{category.name}}</li>
+          <ul id="categories">
+              <li v-for="category in categories" :key="category.name" @click="switchTab($event, category.id), togglePrices()" class="tab-link"> {{category.name}}</li>
           </ul>
       </div>
       <div id="haircut" class="tab">
         <table>
               <thead>
                   <tr>
-                      <th>Typ</th>
+                      <th >Klippning</th>
                       <th>Pris</th>
                   </tr>
               </thead>
@@ -28,7 +54,7 @@
         <table>
               <thead>
                   <tr>
-                      <th>Typ</th>
+                      <th>Färgning</th>
                       <th>Pris</th>
                   </tr>
               </thead>
@@ -44,7 +70,7 @@
             <table>
               <thead>
                   <tr>
-                      <th>Typ</th>
+                      <th>Permanent</th>
                       <th>Pris</th>
                   </tr>
               </thead>
@@ -60,7 +86,7 @@
             <table>
               <thead>
                   <tr>
-                      <th>Typ</th>
+                      <th>Tvätt</th>
                       <th>Pris</th>
                   </tr>
               </thead>
@@ -76,7 +102,7 @@
             <table>
               <thead>
                   <tr>
-                      <th>Typ</th>
+                      <th>Uppsättningar</th>
                       <th>Pris</th>
                   </tr>
               </thead>
@@ -92,7 +118,7 @@
                   <table>
               <thead>
                   <tr>
-                      <th>Typ</th>
+                      <th>Bryn</th>
                       <th>Pris</th>
                   </tr>
               </thead>
@@ -108,7 +134,7 @@
                   <table>
               <thead>
                   <tr>
-                      <th>Typ</th>
+                      <th>Hårförlängning</th>
                       <th>Pris</th>
                   </tr>
               </thead>
@@ -119,6 +145,7 @@
                 </tr>
             </tbody>
           </table>
+      </div>
       </div>
   </div>
 </template>
@@ -316,18 +343,20 @@ export default {
 
         }
     },
-
     methods: {
         togglePrices: ()=>{
-            const menu = document.querySelector('ul');
+            if(window.screen.availWidth < 900){
+            const menu = document.getElementById('categories');
             
             if(menu.style.display === 'none'){
              menu.style.display = 'flex';
             } else {
                 menu.style.display = 'none';
             }
+            }
         },
         switchTab: (event, tabName) => {
+
             const tabs = document.getElementsByClassName('tab');
             for(let i = 0;  i < tabs.length; i++){
                 tabs[i].style.display = 'none';
@@ -348,25 +377,64 @@ export default {
 </script>
 
 <style scoped>
-.bar ul {
-    background: red;
+.underline {
+    text-decoration: underline;
+    color: var(--primary);
+}
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-height: 80vh;
+}
+.image-wrapper .info {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    padding: 1em;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.info i {
+    color: white;
+}
+.image-wrapper img {
+    width: 100%;
+    height: fit-content;
+    object-fit: cover;
+}
+
+ #categories {
     display: none;
     flex-direction: column;
     flex-wrap: wrap;
     list-style: none;
     justify-content: space-around;
     padding: 1em 0px 0px 0px;
+    background: #ededed;
+    margin: 0;
+    
 }
+
+
 .price-btn {
     text-align: center;
     display: block;
     font-weight: bold;
+    padding: 1em;
+    background: var(--primary);
+    color: white;
 }
 .price-btn:hover {
     text-decoration: underline;
 }
-.bar ul li {
+#categories li {
     padding: 1em;
+}
+#categories li:hover  {
+    cursor: pointer;
+    font-weight: bold;
 }
 .active {
     background-color: white;
@@ -379,29 +447,45 @@ export default {
 #haircut {
     display: block;
 }
+.table-container {
+    width: 100%;
+}
 table {
     border-collapse: collapse;
     width: 100%;
 }
 thead th{
     font-size: 1.3rem;
-    background-color: #dddddd;
+    background-color: var(--primary);
 }
 tr:hover {
         background-color: #dddddd;
 }
 td, th {
-      border: 1px solid #dddddd;
+      border: 1px solid var(--primary);
     text-align: left;
     padding: 8px;
 }
 @media screen and (min-width: 900px) {
-    .bar ul {
+    #categories {
         display: flex;
         flex-direction: row;
+        background: white;
     }
     .price-btn {
         display: none;
     }
+    .image-wrapper .info {
+        width: 50%;
+    }
+    .table-container {
+    width: 50%;
+    margin: 0 auto;
+    }
+    .image-wrapper {
+    max-height: 50vh;
+    }
+
+
 }
 </style>

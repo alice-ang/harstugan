@@ -1,7 +1,6 @@
 <template>
   <div class="home-page">
       <img src="../assets/img/bg2.jpg" alt="background" class="background-image">
-      <img src="../assets/img/loggor/harstuganlogo2vit.png" alt="logo" class="harstugan-image">
   </div>
 </template>
 
@@ -11,7 +10,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .home-page {
     overflow: hidden;
 }
