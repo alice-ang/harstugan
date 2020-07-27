@@ -11,12 +11,14 @@
                 <li><router-link :to="{name: 'Home'}">Hem</router-link></li>
                 <li><router-link :to="{name: 'Prices'}">Priser</router-link></li>
                 <li><router-link :to="{name: 'Gallery'}">Galleri</router-link></li>
+                <li><router-link :to="{name: 'About'}">Om oss</router-link></li>
             </ul>
         </nav>
             <ul id="mobile-menu">
                 <li><router-link :to="{name: 'Home'}">Hem</router-link></li>
                 <li><router-link :to="{name: 'Prices'}">Priser</router-link></li>
                 <li><router-link :to="{name: 'Gallery'}">Galleri</router-link></li>
+                <li><router-link :to="{name: 'About'}">Om oss</router-link></li>
             </ul>
     </header>
 </template>
