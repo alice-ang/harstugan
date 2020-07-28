@@ -3,7 +3,7 @@
 <!-- Tillägg för längre hår an axlöar-->
   <div class="price-tabs">
               <div class="image-wrapper">
-            <img src="https://source.unsplash.com/1080x720/?hairdresser" alt="">
+            <img src="../assets/img/bg1.jpg" alt="">
             <div class="info">
               <h2>Ring <span class="underline">0587-100 34</span> för att boka tid!</h2>
               <p> <i class="fas fa-exclamation-circle"></i> EJ AVBOKAD TID DEBITERAS <br> TILLÄGG FÖR HÅR LÄNGRE ÄN AXLARNA 150:-</p>
@@ -358,7 +358,6 @@ export default {
 <style scoped>
 .underline {
     text-decoration: underline;
-    color: var(--primary);
 }
 .image-wrapper {
   position: relative;
@@ -461,6 +460,11 @@ td, th {
     .price-btn {
         display: none;
     }
+    .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
     .image-wrapper .info {
         width: 50%;
     }
@@ -470,6 +474,11 @@ td, th {
     }
     .image-wrapper {
     max-height: 50vh;
+    }
+}
+@media screen and (min-width: 400px) {
+    .image-wrapper {
+    max-height: 60vh;
     }
 }
 </style>

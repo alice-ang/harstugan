@@ -59,6 +59,7 @@ export default {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        margin-top: 1em;
     }
     #map, #opening {
     width: 100%;
@@ -91,7 +92,7 @@ iframe {
 .footer-info {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 .footer-info img {
