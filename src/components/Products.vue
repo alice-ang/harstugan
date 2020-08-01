@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-    <h1>Produkter</h1>
+    <h2>Produkter vi säljer</h2>
 
     <div class="row">
         <div class="column" v-for="(image, i) in products" :key="i">
@@ -165,7 +165,7 @@ export default {
 </script>
 
 <style scoped>
-h1 {
+h2 {
     text-align: center;
 }
 * {

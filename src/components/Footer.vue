@@ -20,7 +20,7 @@
             </span>
       </div>
         <div class="footer-info">
-            <p>Copyright &copy; {{year}} | Utvecklad med <span id="heart"> &hearts;</span> av Alice &amp; Ludwig</p>
+            <p>Copyright &copy; {{year}} | Utvecklad med <span id="heart"> &hearts;</span> av <a href="https://alice-ang.github.io/" target="_blank"> Alice </a> &amp; Ludwig</p>
         </div>
   </div>
 </template>
@@ -101,7 +101,13 @@ iframe {
 .footer-info p {
     padding: 10px;
 }
+.footer-info a {
+    text-decoration: none;
+}
 
+.footer-info a:hover {
+    text-decoration: underline;
+}
 #heart {
     color: var(--primary);
 }
