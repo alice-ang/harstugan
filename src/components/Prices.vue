@@ -365,7 +365,7 @@ export default {
   max-height: 80vh;
 }
 .image-wrapper .info {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.65);
     border-radius: 5px;
     padding: 1em;
     transform: translate(-50%, -50%);
