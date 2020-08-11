@@ -2,28 +2,31 @@
     <div class="home-page">
         <div class="home-carousel">
             <div class="carousel-slide">
-                <div class="test-picture">
-                    <figure>
-                        <img src="../assets/img/galleribilder/img0.jpg" alt="test">
-                        <figcaption>Nyheter 2020!</figcaption>
-                    </figure>
-                    
-                </div>
-                <div class="test-text">
-                    <h2>Nyheter 2020</h2>
-                    <p>This is a news-text.</p>
+                <div class="slide-content">
+                    <div class="slide-picture">
+                        <figure>
+                            <img src="../assets/img/galleribilder/img0.jpg" alt="test">
+                            <figcaption>Nyheter 2020!</figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide-text">
+                        <h2>Nyheter 2020</h2>
+                        <p>This is a news-text.</p>
+                    </div>
                 </div>
             </div>
-            <div class="carousel-slide">
-                <div class="test-picture">
-                    <figure>
-                        <img src="../assets/img/galleribilder/img0.jpg" alt="test">
-                        <figcaption>Om Hårstugan</figcaption>
-                    </figure>
-                </div>
-                <div class="test-text">
-                    <h2>Om Hårstugan</h2>
-                    <p>This is an about-text.</p>
+            <div class="carousel-slide temp">
+                <div class="slide-content">
+                    <div class="slide-picture">
+                        <figure>
+                            <img src="../assets/img/galleribilder/img0.jpg" alt="test">
+                            <figcaption>Om Hårstugan</figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide-text">
+                        <h2>Om Hårstugan</h2>
+                        <p>This is an about-text.</p>
+                    </div>
                 </div>
             </div>
             <div class="carousel-controls">
@@ -138,8 +141,13 @@ export default {
 .carousel-slide {
     max-width: 100%;
     display: none;
-    
 }
+.slide-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 10px;
+}
+.slide-content 
 .carousel-controls {
     color: white;
     bottom: 0;
@@ -153,26 +161,30 @@ export default {
 .w3-badge {
     height:13px;width:13px;padding:0
 }
-.test-picture {
+.slide-picture {
     position: relative;
     z-index: 400;
     max-width: 800px;
 }
-.test-picture figure {
+.slide-picture figure {
     margin: 0;
 }
-.test-picture img {
+.slide-picture img {
     max-width: 800px;
 }
-.test-picture figcaption {
+.slide-picture figcaption {
     font-size: 36px;
     font-weight: bold;
     width: 100%;
     bottom: 0;
+    padding-left: 10px;
     position: absolute;
     background: rgba(0,0,0,0.5);
     color: white;
     z-index: 500;
+}
+.slide-text h2 {
+    text-align: center;
 }
 
 </style>
