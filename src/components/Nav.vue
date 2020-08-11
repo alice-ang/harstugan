@@ -1,9 +1,9 @@
 <template>
     <header>
         <nav>
-                <div class="logo">
-                    <img src="../assets/img/loggor/harstuganlogo2vit.png" alt="logo" >
-                </div>
+            <div class="logo">
+                <router-link :to="{name: 'Home'}"><img src="../assets/img/loggor/harstuganlogo2vit.png" alt="logo" ></router-link>
+            </div>
             <span id="responsive-btn">
                 <i class="fas fa-bars" @click="toggleMenu"></i>
             </span>
@@ -12,6 +12,7 @@
                 <li><router-link :to="{name: 'Prices'}">Priser</router-link></li>
                 <li><router-link :to="{name: 'Gallery'}">Galleri</router-link></li>
                 <li><router-link :to="{name: 'About'}">Om oss</router-link></li>
+                <li><router-link :to="{name: 'Products'}">Produkter</router-link></li>
             </ul>
         </nav>
             <ul id="mobile-menu">
@@ -19,6 +20,7 @@
                 <li><router-link :to="{name: 'Prices'}">Priser</router-link></li>
                 <li><router-link :to="{name: 'Gallery'}">Galleri</router-link></li>
                 <li><router-link :to="{name: 'About'}">Om oss</router-link></li>
+                <li><router-link :to="{name: 'Products'}">Produkter</router-link></li>
             </ul>
     </header>
 </template>
@@ -28,7 +30,6 @@ export default {
     name: 'Nav',
     data(){
         return{
-
         }
     },
     methods: {
@@ -50,12 +51,15 @@ export default {
 <style scoped>
 nav {
     display: flex;
+    width: 100%;
     justify-content: space-around;
     background:var(--primary);
     padding: 1em;
     color: white;
     flex-wrap: wrap;
 }
+
+
 #responsive-btn {
     display: inline-block;
     font-size: 1.2em;
@@ -90,6 +94,9 @@ nav ul {
 }
 nav ul li {
     margin: 0 1em;
+}
+.logo a:hover {
+    border-bottom: none !important;
 }
 a {
     color: var(--primary);

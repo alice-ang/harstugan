@@ -1,15 +1,19 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Prices from './components/Prices.vue';
-import Home from './components/Home.vue';
-import Gallery from './components/Gallery.vue';
-import About from './components/About.vue';
 
+const Prices = () => import ('./components/Prices.vue')
+//import Prices from './components/Prices.vue'
+import Home from './components/Home.vue'
+import Gallery from './components/Gallery.vue'
+import About from './components/About.vue'
+const Products = () => import ('./components/Products.vue')
+//import Products from './components/Products.vue'
 
 Vue.use(Router);
 
 export default new Router({
-    mode: 'history',
+   // mode: 'history',
+   base: process.env.BASE_URL,
     routes: [
       {
             path: '/',
@@ -31,6 +35,11 @@ export default new Router({
             path: '/om-oss',
             name: 'About',
             component: About
+        },
+        {
+            path: '/produkter',
+            name: 'Products',
+            component: Products
         }
     ]
 });
