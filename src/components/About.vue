@@ -8,7 +8,9 @@
       </div>
       <div class="about-harstugan">
           <h1 class="about-h-title">Om Hårstugan</h1>
-          <p class="about-text">{{about.text}}</p>
+          <p class="about-text">{{about.text1}}</p>
+          <p class="about-text">{{about.text2}}</p>
+          <p class="about-text">{{about.text3}}</p>
       </div>
   </div>
 </template>
@@ -23,7 +25,11 @@ export default {
                 {name: 'Caroline Olsson', url: require('../assets/img/profilbilder/carro2.0.jpg')},
                 {name: 'Wilma Eklund', url: require('../assets/img/profilbilder/wilma.jpg')}
             ],
-            about: {text: 'Hårstugan som i år fyller 36 år drivs av frisörmästare Jenny Carlsson. Här jobbar också Caroline Olsson. Både Carro och Jenny har frisörlicens från Frisörernas yrkesnämnd(FYN) samt tagit gesällen. Sedan Juni 2019 finns Wilma Eklund hos oss, även hon har licens och jobbar trainee-timmar mot gesällen. Följ oss gärna på våra sociala medier för att se vad som händer under året! Du hittar oss på Instagram och Facebook. Varmt välkommen till Hårstugan i Nora! 😊 // Jenny, Carro och Wilma'}
+            about: {
+                text1: 'Hårstugan som i år fyller 36 år drivs av frisörmästare Jenny Carlsson. Här jobbar också Caroline Olsson. Både Carro och Jenny har frisörlicens från Frisörernas yrkesnämnd(FYN) samt tagit gesällen. Sedan Juni 2019 finns Wilma Eklund hos oss, även hon har licens och jobbar trainee-timmar mot gesällen.',
+                text2: 'Följ oss gärna på våra sociala medier för att se vad som händer under året! Du hittar oss på Instagram och Facebook.',
+                text3: 'Varmt välkommen till Hårstugan i Nora! 😊 // Jenny, Carro och Wilma'
+            }
         }
     }
 }
