@@ -1,7 +1,7 @@
 <template>
     <div class="home-page">
         <div class="home-carousel">
-            <div class="carousel-slide">
+            <div class="carousel-slide initial">
                 <div class="slide-content">
                     <div class="slide-picture">
                         <figure>
@@ -11,11 +11,11 @@
                     </div>
                     <div class="slide-text">
                         <h2>Nyheter 2020</h2>
-                        <p>This is a news-text.</p>
+                        <p>{{alerts.text1}}</p>
                     </div>
                 </div>
             </div>
-            <div class="carousel-slide temp">
+            <div class="carousel-slide">
                 <div class="slide-content">
                     <div class="slide-picture">
                         <figure>
@@ -25,7 +25,7 @@
                     </div>
                     <div class="slide-text">
                         <h2>Om Hårstugan</h2>
-                        <p>This is an about-text.</p>
+                        <p>{{alerts.text2}}</p>
                     </div>
                 </div>
             </div>
@@ -91,41 +91,26 @@ export default {
                 {
                     image: require("../assets/img/galleribilder/img14.jpg"),
                 }
-            ]
+            ],
+            alerts: {
+                text1: "This is a news-text.This is a news-text.This is a news-text.This is a news-text.This is a news-text.This is a news-text.This is a news-text.",
+                text2: "This is an about-text.This is an about-text.This is an about-text.This is an about-text.This is an about-text.This is an about-text.This is an about-text."
+            }
         }
     },
     mounted() {
-        this.showSlide(slideIndex);
     },
     components: {
     },
     methods: {
-        changeSlide: function(index) {
-            this.showSlide(slideIndex += index);
+        changeSlide: function() {
+            var slides = document.getElementsByClassName("carousel-slide"),
+            totalSlides = slides.length,
+            slide = 0,
+            moving = true;
         },
-        currentSlide: function(n) {
-            this.showSlide(slideIndex = n);
-        },
-        showSlide: function(n) {
-            var i;
-            var slides = document.getElementsByClassName("carousel-slide");
-            var slideDot = document.getElementsByClassName("slide-dot");
-            if(n > slides.length) {
-                slideIndex = 1;
-            }
-            if(n < 1) {
-                slideIndex = slides.length;
-            }
-            console.log(slides.length);
-            console.log(n);
-            for(i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for(i = 0; i < slideDot.length; i++) {
-                slideDot[i].className = slideDot[i].className.replace(" w3-white", "");
-            }
-            slides[slideIndex-1].style.display = "block";
-            slideDot[slideIndex-1].className += " w3-white";
+        setInitialClass: function() {
+            
         }
     }
 };
@@ -134,32 +119,91 @@ export default {
 <style scoped>
 .home-page {
     overflow: hidden;
+    width: 100%;
+}
+.home-page * {
+    box-sizing: border-box;
 }
 .active-slide {
     display: block !important;
 }
+.home-carousel {
+    transform-style: preserve-3d;
+}
 .carousel-slide {
-    max-width: 100%;
-    display: none;
+    width: 100%;
+    opacity: 0;
+    top: 0;
+    margin: auto;
+    position: absolute;
+    z-index: 100;
+    transition: transform .5s, opacity .5s, z-index .5s;
+}
+.carousel-slide.initial,
+.carousel-slide.active {
+  opacity: 1;
+  position: relative;
+  z-index: 900;
+}
+.carousel-slide.next, 
+.carousel-slide.prev {
+    z-index: 800;
+}
+.carousel-slide.prev {
+    transform: translateX(-100%);
+}
+.carousel-slide.next {
+    transform: translateX(100%);
 }
 .slide-content {
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: 10px;
 }
-.slide-content 
 .carousel-controls {
     color: white;
     bottom: 0;
     text-align: center;
     background-color: rgba(0,0,0,0.5);
 }
-.previous-slide, .next-slide, .w3-badge {
-    cursor: pointer;
-    z-index: 1000;
+.previous-slide, .next-slide {
+    position: absolute;
+    top:50%;
+    width: 3rem;
+    height: 3rem;
+    background-color: #FFF;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    cursor: pointer; 
+    z-index: 1001; /* Sit on top of everything */
+    border: 1px solid black;
+}
+.previous-slide {
+    left: 0;
+}
+.next-slide {
+    right: 0;
+}
+.previous-slide::after, .next-slide::after {
+    content: " ";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 54%;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+.next-slide::after {
+    left: 47%;
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 .w3-badge {
-    height:13px;width:13px;padding:0
+    height: 13px;
+    width: 13px;
+    padding: 0;
+    cursor: pointer;
 }
 .slide-picture {
     position: relative;
@@ -186,5 +230,4 @@ export default {
 .slide-text h2 {
     text-align: center;
 }
-
 </style>
