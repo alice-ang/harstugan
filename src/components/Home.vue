@@ -32,8 +32,6 @@
             <div class="carousel-controls">
                 <div class="previous-slide w3-left" id="prevSlide"></div>
                 <div class="next-slide w3-right" id="nextSlide"></div>
-                <span class="w3-badge slide-dot w3-border w3-transparent w3-hover-white" @click="moveCarouselTo(0)"></span>
-                <span class="w3-badge slide-dot w3-border w3-transparent w3-hover-white" @click="moveCarouselTo(1)"></span>
             </div>
         </div>
     </div>
@@ -275,13 +273,15 @@ export default {
 .slide-picture {
     position: relative;
     z-index: 400;
-    max-width: 800px;
+    max-width: 1000px;
+    max-height: 600px;
 }
 .slide-picture figure {
     margin: 0;
 }
 .slide-picture img {
-    max-width: 800px;
+    max-width: 1000px;
+    max-height: 600px;
 }
 .slide-picture figcaption {
     font-size: 36px;
