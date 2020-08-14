@@ -29,7 +29,7 @@
       </div>-->
       <div class="table-container">
         <div class="bar">
-        <div  class="price-btn" @click="togglePrices"> Se alla priser</div>
+        <div class="price-btn" @click="togglePrices"> Se alla priser</div>
           <ul id="categories">
               <li v-for="category in categories" :key="category.name" @click="switchTab($event, category.id), togglePrices()" class="tab-link"> {{category.name}}</li>
           </ul>
@@ -416,7 +416,9 @@ export default {
     color: var(--primary);
 }
 .active {
-    background-color: white;
+    background-color: #f1f1f1;
+    color: var(--primary);
+    font-weight: bold;
 }
 .tab {
     padding: 1em;
@@ -443,7 +445,7 @@ thead th{
     background-color: var(--primary);
 }
 tr:hover {
-        background-color: #f1f1f1;
+    background-color: #f1f1f1;
 }
 
 td, th {
