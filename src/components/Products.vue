@@ -1,172 +1,184 @@
 <template>
-<div class="container">
+  <div class="container">
     <h2>Produkter vi säljer</h2>
 
     <div class="row">
-        <div class="column" v-for="(image, i) in products" :key="i">
-            <img :src="image.img.url" style="width:100%" @click="openModal(); currentSlide(i+1)" class="hover-shadow cursor">
-        </div>
+      <div class="column" v-for="(image, i) in products" :key="i">
+        <img
+          :src="image.img.url"
+          style="width:100%"
+          @click="
+            openModal();
+            currentSlide(i + 1);
+          "
+          class="hover-shadow cursor"
+        />
+      </div>
     </div>
     <div id="myModal" class="modal">
-  <span class="close cursor" @click="closeModal()">&times;</span>
-  <div class="modal-content">
+      <span class="close cursor" @click="closeModal()">&times;</span>
+      <div class="modal-content">
+        <div class="mySlides" v-for="(image, i) in products" :key="i">
+          <div class="numbertext">{{ i + 1 }} / {{ products.length }}</div>
+          <img :src="image.img.url" style="width:100%" />
+        </div>
 
-    <div class="mySlides" v-for="(image, i) in products" :key="i">
-      <div class="numbertext">{{i+1}} / {{products.length}}</div>
-      <img :src="image.img.url" style="width:100%">
-    </div>
+        <a class="prev" @click="plusSlides(-1)">&#10094;</a>
+        <a class="next" @click="plusSlides(1)">&#10095;</a>
 
-    <a class="prev" @click="plusSlides(-1)">&#10094;</a>
-    <a class="next" @click="plusSlides(1)">&#10095;</a>
+        <div class="caption-container">
+          <p id="caption"></p>
+        </div>
 
-    <div class="caption-container">
-      <p id="caption"></p>
-    </div>
-
-    <div class="column" v-for="(image, i) in products" :key="i">
-      <img class="demo cursor" :src="image.img.url" style="width:100%" @click="currentSlide(i+1)" :alt="image.img.alt">
+        <div class="column" v-for="(image, i) in products" :key="i">
+          <img
+            class="demo cursor"
+            :src="image.img.url"
+            style="width:100%"
+            @click="currentSlide(i + 1)"
+            :alt="image.img.alt"
+          />
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-
-</div>
 </template>
 
 <script>
 export default {
-    name: 'Products',
-    components: {
-        
+  name: "Products",
+  components: {},
+  mounted() {
+    this.showSlides(this.slideIndex);
+  },
+  methods: {
+    openModal: function() {
+      document.getElementById("myModal").style.display = "block";
     },
-    mounted(){
-        this.showSlides(this.slideIndex);
-
+    closeModal: function() {
+      document.getElementById("myModal").style.display = "none";
     },
-    methods: {
-        openModal: function (){
-            document.getElementById("myModal").style.display = "block";
-        },
-        closeModal: function(){
-            document.getElementById("myModal").style.display = "none";
-        },
-        plusSlides: function(n){
-            this.showSlides(this.slideIndex += n);
-        },
-        currentSlide: function(n){
-            this.showSlides(this.slideIndex = n);
-        },
-        showSlides: function(n){
-            let i;
-            const slides = document.getElementsByClassName("mySlides");
-            const dots = document.getElementsByClassName("demo");
-            const captionText = document.getElementById("caption");
-            if (n > slides.length) {this.slideIndex = 1}
-            if (n < 1) {this.slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[this.slideIndex-1].style.display = "block";
-            dots[this.slideIndex-1].className += " active";
-            captionText.innerHTML = dots[this.slideIndex-1].alt;
-        }
+    plusSlides: function(n) {
+      this.showSlides((this.slideIndex += n));
     },
-    data(){
-        return {
-            slideIndex: 1,
-            products: [
-                {
-                    title: "",
-                    description: "",
-                    img:{
-                    url: require("../assets/img/produkter/ola.jpg"),
-                    alt:"Olaplex",
-                    } ,
-                },
-                {
-                    title: "",
-                    description: "",
-                    img:{
-                    url: require("../assets/img/produkter/milk2.jpg"),
-                    alt:"Milkshake",
-                    } ,
-                },
-                {
-                    title: "",
-                    description: "",
-                    img:{
-                    url: require("../assets/img/produkter/milk3.jpg"),
-                    alt:"Milkshake",
-                    } ,
-                },
-                {
-                    title: "",
-                    description: "",
-                    img:{
-                    url: require("../assets/img/produkter/lanza1.jpg"),
-                    alt:"Lanza",
-                    } ,
-                },
-                {
-                    title: "",
-                    description: "",
-                    img:{
-                    url: require("../assets/img/produkter/lanza2.jpg"),
-                    alt:"Lanza",
-                    } ,
-                },
-                {
-                    title: "",
-                    description: "",
-                    img:{
-                    url: require("../assets/img/produkter/lanza3.jpg"),
-                    alt:"Lanza",
-                    } ,
-                },
-                {
-                    title: "",
-                    description: "",
-                    img:{
-                    url: require("../assets/img/produkter/lanza4.jpg"),
-                    alt:"Lanza",
-                    } ,
-                },
-                {
-                    title: "",
-                    description: "",
-                    img:{
-                    url: require("../assets/img/produkter/lanza5.jpg"),
-                    alt:"Lanza",
-                    } ,
-                }, 
-                {
-                    title: "",
-                    description: "",
-                    img:{
-                    url: require("../assets/img/produkter/evo.jpg"),
-                    alt:"Evo",
-                    } ,
-                },
-                {
-                    title: "",
-                    description: "",
-                    img:{
-                    url: require("../assets/img/produkter/kemon.jpg"),
-                    alt:"Kemon",
-                    } ,
-                },                                    
-            ],
-        }
-    }
-}
+    currentSlide: function(n) {
+      this.showSlides((this.slideIndex = n));
+    },
+    showSlides: function(n) {
+      let i;
+      const slides = document.getElementsByClassName("mySlides");
+      const dots = document.getElementsByClassName("demo");
+      const captionText = document.getElementById("caption");
+      if (n > slides.length) {
+        this.slideIndex = 1;
+      }
+      if (n < 1) {
+        this.slideIndex = slides.length;
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[this.slideIndex - 1].style.display = "block";
+      dots[this.slideIndex - 1].className += " active";
+      captionText.innerHTML = dots[this.slideIndex - 1].alt;
+    },
+  },
+  data() {
+    return {
+      slideIndex: 1,
+      products: [
+        {
+          title: "",
+          description: "",
+          img: {
+            url: require("../assets/img/produkter/ola.jpg"),
+            alt: "Olaplex",
+          },
+        },
+        {
+          title: "",
+          description: "",
+          img: {
+            url: require("../assets/img/produkter/milk2.jpg"),
+            alt: "Milkshake",
+          },
+        },
+        {
+          title: "",
+          description: "",
+          img: {
+            url: require("../assets/img/produkter/milk3.jpg"),
+            alt: "Milkshake",
+          },
+        },
+        {
+          title: "",
+          description: "",
+          img: {
+            url: require("../assets/img/produkter/lanza1.jpg"),
+            alt: "Lanza",
+          },
+        },
+        {
+          title: "",
+          description: "",
+          img: {
+            url: require("../assets/img/produkter/lanza2.jpg"),
+            alt: "Lanza",
+          },
+        },
+        {
+          title: "",
+          description: "",
+          img: {
+            url: require("../assets/img/produkter/lanza3.jpg"),
+            alt: "Lanza",
+          },
+        },
+        {
+          title: "",
+          description: "",
+          img: {
+            url: require("../assets/img/produkter/lanza4.jpg"),
+            alt: "Lanza",
+          },
+        },
+        {
+          title: "",
+          description: "",
+          img: {
+            url: require("../assets/img/produkter/lanza5.jpg"),
+            alt: "Lanza",
+          },
+        },
+        {
+          title: "",
+          description: "",
+          img: {
+            url: require("../assets/img/produkter/evo.jpg"),
+            alt: "Evo",
+          },
+        },
+        {
+          title: "",
+          description: "",
+          img: {
+            url: require("../assets/img/produkter/kemon.jpg"),
+            alt: "Kemon",
+          },
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
 h2 {
-    text-align: center;
+  text-align: center;
 }
 * {
   box-sizing: border-box;
@@ -198,7 +210,7 @@ h2 {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 /* Modal Content */
@@ -207,8 +219,6 @@ h2 {
   background-color: #fefefe;
   margin: auto;
   padding: 0;
-  width: 50%;
-  max-width: 1200px;
 }
 
 /* The Close Button */
@@ -303,19 +313,27 @@ img.hover-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 @media screen and (min-width: 900px) {
-    .container {
-        margin: 0 auto;
-        width: 70%;
-    }
-    .column {
+  .container {
+    margin: 0 auto;
+    width: 70%;
+  }
+  .column {
     float: left;
     width: 25%;
-    }
+  }
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    width: 50%;
+    max-width: 1200px;
+  }
 }
 @media screen and (max-width: 500px) {
-    .column {
+  .column {
     float: left;
     width: 100%;
-    }
+  }
 }
 </style>

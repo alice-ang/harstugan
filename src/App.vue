@@ -1,31 +1,46 @@
 <template>
   <div id="app">
-    <app-header/>
+    <app-header />
     <router-view></router-view>
-    <app-footer/>
+    <app-footer />
   </div>
 </template>
 
 <script>
-import Nav from './components/Nav'
-import Footer from './components/Footer'
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import store from "./store";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     appHeader: Nav,
-    appFooter: Footer 
-  }
-}
+    appFooter: Footer,
+  },
+  mounted() {
+    store.dispatch("fetchData");
+  },
+};
 </script>
 
 <style>
 :root {
-  --primary: #ff7799;
+  --primary: #a6a3a9;
+  --secondary: #dbb5c3;
+  --pink: #ff7799;
+  --grey: rgb(239 239 239 / 78%);
 }
 body {
   margin: 0;
+  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
 }
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Prata", serif;
 }
 </style>

@@ -23,111 +23,111 @@
                 <li><router-link :to="{name: 'Products'}">Produkter</router-link></li>
             </ul>
     </header>
+
 </template>
 
 <script>
 export default {
-    name: 'Nav',
-    data(){
-        return{
-        }
+  name: "Nav",
+  data() {
+    return {};
+  },
+  methods: {
+    toggleMenu: () => {
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenu.style.height === "0px";
+      if (mobileMenu.style.height === "0px") {
+        mobileMenu.style.height = "fit-content";
+        mobileMenu.style.display = "flex";
+      } else {
+        mobileMenu.style.height = "0px";
+        mobileMenu.style.display = "none";
+      }
     },
-    methods: {
-        toggleMenu: () => {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.style.height === "0px"
-            if(mobileMenu.style.height === "0px"){
-                mobileMenu.style.height = 'fit-content';
-                mobileMenu.style.display = "flex"
-            } else {
-                mobileMenu.style.height = "0px";
-                mobileMenu.style.display = "none";
-            }
-        }
-    }
-}
+  },
+};
 </script>
 
 <style scoped>
 nav {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    background:var(--primary);
-    padding: 1em;
-    color: white;
-    flex-wrap: wrap;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  background: var(--primary);
+  padding: 1em;
+  bottom: 0;
+  color: white;
+  flex-wrap: wrap;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  font-size: 1.2rem;
 }
-
 
 #responsive-btn {
-    display: inline-block;
-    font-size: 1.2em;
-    margin-top: 1em;
+  display: inline-block;
+  font-size: 1.2em;
+  margin-top: 1em;
 }
 .logo {
-    margin-top: 1em;
-    width: 80px;
+  margin-top: 1em;
+  width: 80px;
 }
 .logo img {
-    display: inline-block;
-    width: 100%;
+  display: inline-block;
+  width: 100%;
 }
 #mobile-menu {
-    margin: 0;
-    flex-direction: column;
-    list-style: none;
+  margin: 0;
+  flex-direction: column;
+  list-style: none;
 }
 #mobile-menu li {
-    padding: 1em;
+  padding: 1em;
 }
 .menu {
-    display: none;
+  display: none;
 }
 
 nav ul {
-    display: flex;
-    list-style: none;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 nav ul li {
-    margin: 0 1em;
+  margin: 0 1em;
 }
 .logo a:hover {
-    border-bottom: none !important;
+  border-bottom: none !important;
 }
 a {
-    color: var(--primary);
-    font-weight: bold;
-    text-decoration: none;
+  color: var(--primary);
+  text-decoration: underline;
 }
 a:hover {
-    border-bottom: 2px solid white;
+  border-bottom: 2px solid white;
 }
 @media screen and (min-width: 900px) {
-    #responsive-btn {
-        display: none;
-    }
-    nav ul {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    .logo {
-        width: 7%;
-    }
-    .menu {
-        display: flex;
-    }
-    #mobile-menu {
-        display: none;
-        height: 0px;
-    }
-    a {
+  #responsive-btn {
+    display: none;
+  }
+  nav ul {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .logo {
+    width: 7%;
+  }
+  .menu {
+    display: flex;
+  }
+  #mobile-menu {
+    display: none;
+    height: 0px;
+  }
+  a {
     color: white;
-
-}
-    
+    text-decoration: none;
+  }
 }
 </style>
