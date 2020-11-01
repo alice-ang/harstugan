@@ -239,8 +239,9 @@ export default {
   color: var(--primary);
 }
 .active {
-    color: var(--primary);
-    font-weight: bold;
+  color: var(--primary);
+  font-weight: bold;
+  border-bottom: 2px solid var(--primary);
 }
 .tab {
   padding: 1em;
@@ -304,6 +305,11 @@ th {
 @media screen and (min-width: 400px) {
   .image-wrapper {
     max-height: 60vh;
+  }
+  .active {
+    color: var(--primary);
+    font-weight: bold;
+    border-top: 2px solid var(--primary);
   }
 }
 </style>
