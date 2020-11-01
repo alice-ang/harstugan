@@ -1,0 +1,186 @@
+{
+  "categories": [
+    {
+      "name": "Klippning",
+      "id": "haircut"
+    },
+    {
+      "name": "Färgning",
+      "id": "coloring"
+    },
+    {
+      "name": "Permanent",
+      "id": "perm"
+    },
+    {
+      "name": "Tvätt",
+      "id": "wash"
+    },
+    {
+      "name": "Uppsättningar",
+      "id": "prom"
+    },
+    {
+      "name": "Bryn",
+      "id": "brows"
+    },
+    {
+      "name": "Hårförlängning",
+      "id": "extentions"
+    }
+  ],
+  "prices": [
+    {
+      "haircuts": [
+        {
+          "type": "Klippning",
+          "price": "440"
+        },
+        {
+          "type": "Barnkl. upptill 10år",
+          "price": "360"
+        },
+        {
+          "type": "Luggklipp",
+          "price": "100"
+        },
+        {
+          "type": "Maskinklipp",
+          "price": "200"
+        },
+        {
+          "type": "Klippning + bottenfärg",
+          "price": "från 980"
+        },
+        {
+          "type": "Klippning + 1färg ",
+          "price": "från 1100"
+        },
+        {
+          "type": "Klippning + 2färg",
+          "price": "från 1200"
+        },
+        {
+          "type": "Klippning + flerfärg",
+          "price": "från 1300"
+        },
+        {
+          "type": "Klippning + slingor",
+          "price": "från 1100"
+        },
+        {
+          "type": "Klippning + folie",
+          "price": "från 1200"
+        },
+        {
+          "type": "Klipp + avfärgning/toning",
+          "price": "från 1000"
+        }
+      ]
+    },
+    {
+      "colorings": [
+        {
+          "type": "Färgning",
+          "price": "från 900"
+        },
+        {
+          "type": "2 färg",
+          "price": "från 1000"
+        },
+        {
+          "type": "Fler färg",
+          "price": "från 1100"
+        },
+        {
+          "type": "Folie slingor",
+          "price": "från 1000"
+        },
+        {
+          "type": "Sling i hätta",
+          "price": "från 900"
+        },
+        {
+          "type": "Avfärgning",
+          "price": "700"
+        },
+        {
+          "type": "Nyansering",
+          "price": "800"
+        }
+      ]
+    },
+    {
+      "perms": [
+        {
+          "type": "Halvpermanent",
+          "price": "från. 950"
+        },
+        {
+          "type": "Permanent",
+          "price": "från. 1100"
+        }
+      ]
+    },
+    {
+      "washes": [
+        {
+          "type": "Tvätt + läggn",
+          "price": "400"
+        },
+        {
+          "type": "Tvätt och fön",
+          "price": "400"
+        }
+      ]
+    },
+    {
+      "proms": [
+        {
+          "type": "Baluppsättning",
+          "price": "950"
+        },
+        {
+          "type": "Enklare Balfrisyr",
+          "price": "800"
+        },
+        {
+          "type": "Bruduppsättning",
+          "price": "från 2000"
+        }
+      ]
+    },
+    {
+      "brows": [
+        {
+          "type": "Färg av bryn",
+          "price": "200"
+        },
+        {
+          "type": "Färg av fransar",
+          "price": "200"
+        },
+        {
+          "type": "Ögonfärgpaket",
+          "price": "300"
+        },
+        {
+          "type": "Brynplock",
+          "price": "150"
+        }
+      ]
+    },
+    {
+      "extentions": [
+        {
+          "type": "Hel",
+          "price": "från 6000"
+        },
+        {
+          "type": "Halv",
+          "price": "från 4500"
+        }
+      ]
+    }
+  ]
+}
