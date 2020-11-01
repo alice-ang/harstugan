@@ -239,7 +239,8 @@ export default {
   color: var(--primary);
 }
 .active {
-  background-color: white;
+    color: var(--primary);
+    font-weight: bold;
 }
 .tab {
   padding: 1em;
