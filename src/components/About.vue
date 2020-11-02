@@ -3,9 +3,22 @@
     <h1>Om Hårstugan</h1>
     <div class="about-row">
       <div class="about-text">
-        <p>{{ about.text1 }}</p>
-        <p>{{ about.text2 }}</p>
-        <p>{{ about.text3 }}</p>
+        <p>
+          Hårstugan som i år fyller 36 år drivs av frisörmästare Jenny Carlsson.
+          Här jobbar också Caroline Olsson. Både Carro och Jenny har
+          frisörlicens från Frisörernas yrkesnämnd(FYN) samt tagit gesällen.
+          Sedan Juni 2019 finns Wilma Eklund hos oss, även hon har licens och
+          jobbar trainee-timmar mot gesällen.
+        </p>
+        <p>
+          Följ oss gärna på våra sociala medier för att se vad som händer under
+          året! Du hittar oss på
+          <span @click="setIframe('instagram')">Instagram</span> och
+          <span @click="setIframe('facebook')">Facebook</span>.
+        </p>
+        <p>
+          Varmt välkommen till Hårstugan i Nora! 😊 // Jenny, Carro och Wilma
+        </p>
         <div class="about-row">
           <figure v-for="person in hairdresser" :key="person.name">
             <img :src="person.url" alt="person" />
@@ -18,7 +31,7 @@
       <div class="smartphone">
         <div class="content">
           <iframe
-            src="https://www.facebook.com/v2.5/plugins/page.php?adapt_container_width=true&app_id=&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df3466540a1e803c%26domain%3Dharstugan.se%26origin%3Dhttp%253A%252F%252Fharstugan.se%252Ff2e8838d6cda50c%26relation%3Dparent.parent&hide_cover=true&href=https%3A%2F%2Fwww.facebook.com%2FH%25C3%25A5rstugan-264806910204747%2F%3Ffref%3Dts&locale=en_US&sdk=joey&show_facepile=true&small_header=false&tabs=timeline"
+            :src="this.source"
             style="width:100%;border:none;height:100%"
           />
         </div>
@@ -32,6 +45,8 @@ export default {
   name: "About",
   data() {
     return {
+      source:
+        "https://www.facebook.com/v2.5/plugins/page.php?adapt_container_width=true&app_id=&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df3466540a1e803c%26domain%3Dharstugan.se%26origin%3Dhttp%253A%252F%252Fharstugan.se%252Ff2e8838d6cda50c%26relation%3Dparent.parent&hide_cover=true&href=https%3A%2F%2Fwww.facebook.com%2FH%25C3%25A5rstugan-264806910204747%2F%3Ffref%3Dts&locale=en_US&sdk=joey&show_facepile=true&small_header=false&tabs=timeline",
       hairdresser: [
         {
           name: "Jenny Carlsson",
@@ -46,15 +61,18 @@ export default {
           url: require("../assets/img/profilbilder/wilma.jpg"),
         },
       ],
-      about: {
-        text1:
-          "Hårstugan som i år fyller 36 år drivs av frisörmästare Jenny Carlsson. Här jobbar också Caroline Olsson. Både Carro och Jenny har frisörlicens från Frisörernas yrkesnämnd(FYN) samt tagit gesällen. Sedan Juni 2019 finns Wilma Eklund hos oss, även hon har licens och jobbar trainee-timmar mot gesällen.",
-        text2:
-          "Följ oss gärna på våra sociala medier för att se vad som händer under året! Du hittar oss på Instagram och Facebook.",
-        text3:
-          "Varmt välkommen till Hårstugan i Nora! 😊 // Jenny, Carro och Wilma",
-      },
     };
+  },
+  methods: {
+    setIframe(clicked) {
+      console.log(clicked);
+      if (clicked === "facebook") {
+        this.source =
+          "https://www.facebook.com/v2.5/plugins/page.php?adapt_container_width=true&app_id=&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df3466540a1e803c%26domain%3Dharstugan.se%26origin%3Dhttp%253A%252F%252Fharstugan.se%252Ff2e8838d6cda50c%26relation%3Dparent.parent&hide_cover=true&href=https%3A%2F%2Fwww.facebook.com%2FH%25C3%25A5rstugan-264806910204747%2F%3Ffref%3Dts&locale=en_US&sdk=joey&show_facepile=true&small_header=false&tabs=timeline";
+      } else {
+        this.source = "https://www.instagram.com/p/BxknR2OhM68/embed";
+      }
+    },
   },
 };
 </script>
@@ -74,12 +92,11 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
 }
-figure img {
+.about-page figure img {
   box-shadow: 0px 0px 10px 0px rgba(94, 94, 94, 0.65);
   border-radius: 50%;
   background: white;
 }
-
 figcaption {
   text-align: center;
   bottom: 0;
@@ -87,6 +104,10 @@ figcaption {
 
 .about-text {
   padding: 0 1em;
+}
+.about-text span {
+  font-weight: bold;
+  cursor: pointer;
 }
 /* The device with borders */
 .smartphone {
@@ -133,6 +154,7 @@ figcaption {
   width: 250px;
   height: 450px;
 }
+
 @media screen and (min-width: 905px) {
   .about-page {
     margin: 0 auto;
@@ -142,11 +164,12 @@ figcaption {
     flex-wrap: nowrap;
   }
   .smartphone {
-    width: 370px;
+    width: 400px;
     height: 580px;
   }
+
   .smartphone .content {
-    width: 360px;
+    width: 340px;
     height: 460px;
   }
 }

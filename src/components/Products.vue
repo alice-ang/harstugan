@@ -319,7 +319,7 @@ img.hover-shadow {
   }
   .column {
     float: left;
-    width: 25%;
+    width: 33%;
   }
   .modal-content {
     position: relative;
@@ -328,12 +328,6 @@ img.hover-shadow {
     padding: 0;
     width: 70%;
     max-width: 1200px;
-  }
-}
-@media screen and (max-width: 500px) {
-  .column {
-    float: left;
-    width: 100%;
   }
 }
 </style>
