@@ -28,7 +28,6 @@ export default new Vuex.Store({
       fetch("/data.json")
         .then(async (res) => {
           const data = await res.json();
-          console.log(data);
           if (!res.ok) {
             // get error message from body or default to response statusText
             const error = (data && data.message) || res.statusText;

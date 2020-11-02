@@ -217,7 +217,7 @@ h2 {
 .modal-content {
   position: relative;
   background-color: #fefefe;
-  margin: auto;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -326,7 +326,7 @@ img.hover-shadow {
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    width: 50%;
+    width: 70%;
     max-width: 1200px;
   }
 }

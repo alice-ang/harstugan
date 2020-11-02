@@ -1,36 +1,43 @@
 <template>
-    <header>
-        <nav>
-            <div class="logo">
-                <router-link :to="{name: 'Home'}"><img src="../assets/img/loggor/harstuganlogo2vit.png" alt="logo" ></router-link>
-            </div>
-            <span id="responsive-btn">
-                <i class="fas fa-bars" @click="toggleMenu"></i>
-            </span>
-           <ul class="menu">
-                <li><router-link :to="{name: 'Home'}">Hem</router-link></li>
-                <li><router-link :to="{name: 'Prices'}">Priser</router-link></li>
-                <li><router-link :to="{name: 'Gallery'}">Galleri</router-link></li>
-                <li><router-link :to="{name: 'About'}">Om oss</router-link></li>
-                <li><router-link :to="{name: 'Products'}">Produkter</router-link></li>
-            </ul>
-        </nav>
-            <ul id="mobile-menu">
-                <li><router-link :to="{name: 'Home'}">Hem</router-link></li>
-                <li><router-link :to="{name: 'Prices'}">Priser</router-link></li>
-                <li><router-link :to="{name: 'Gallery'}">Galleri</router-link></li>
-                <li><router-link :to="{name: 'About'}">Om oss</router-link></li>
-                <li><router-link :to="{name: 'Products'}">Produkter</router-link></li>
-            </ul>
-    </header>
-
+  <header>
+    <nav>
+      <div class="logo">
+        <router-link :to="{ name: 'Home' }"
+          ><img src="../assets/img/loggor/harstuganlogo2vit.png" alt="logo"
+        /></router-link>
+      </div>
+      <span id="responsive-btn">
+        <i class="fas fa-bars" @click="toggleMenu"></i>
+      </span>
+      <ul class="menu">
+        <li v-for="item in navItems" :key="item.name">
+          <router-link :to="item.path">{{ item.name }}</router-link>
+        </li>
+      </ul>
+    </nav>
+    <ul id="mobile-menu">
+      <li v-for="item in navItems" :key="item.name" @click="toggleMenu">
+        <router-link :to="item.path">{{ item.name }}</router-link>
+      </li>
+    </ul>
+  </header>
 </template>
 
 <script>
 export default {
   name: "Nav",
   data() {
-    return {};
+    return {
+      navItems: [],
+    };
+  },
+  created() {
+    this.$router.options.routes.forEach((route) => {
+      this.navItems.push({
+        name: route.name,
+        path: route.path,
+      });
+    });
   },
   methods: {
     toggleMenu: () => {
