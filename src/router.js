@@ -13,27 +13,27 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "Home",
+      name: "Hem",
       component: Home,
     },
     {
       path: "/priser",
-      name: "Prices",
+      name: "Priser",
       component: Prices,
     },
     {
       path: "/galleri",
-      name: "Gallery",
+      name: "Galleri",
       component: Gallery,
     },
     {
       path: "/produkter",
-      name: "Products",
+      name: "Produkter",
       component: Products,
     },
     {
       path: "/om-oss",
-      name: "About",
+      name: "Om oss",
       component: About,
     },
   ],

@@ -30,7 +30,7 @@
           <p id="caption"></p>
         </div>
 
-        <div class="column" v-for="(image, i) in products" :key="i">
+        <div class="column" v-for="(image, i) in products" :key="image.img.url">
           <img
             class="demo cursor"
             :src="image.img.url"

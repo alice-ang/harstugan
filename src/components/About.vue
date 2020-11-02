@@ -1,20 +1,18 @@
 <template>
   <div class="about-page">
-    <div class="hairdressers">
-      <figure
-        v-for="person in hairdresser"
-        :key="person.name"
-        class="hairdresser"
-      >
+    <h1>Om Hårstugan</h1>
+    <div class="about-row">
+      <figure v-for="person in hairdresser" :key="person.name">
         <img :src="person.url" alt="person" />
-        <figcaption>{{ person.name }}</figcaption>
+        <figcaption>
+          <h5>{{ person.name }}</h5>
+        </figcaption>
       </figure>
     </div>
-    <div class="about-harstugan">
-      <h1 class="about-h-title">Om Hårstugan</h1>
-      <p class="about-text">{{ about.text1 }}</p>
-      <p class="about-text">{{ about.text2 }}</p>
-      <p class="about-text">{{ about.text3 }}</p>
+    <div class="about-text">
+      <p>{{ about.text1 }}</p>
+      <p>{{ about.text2 }}</p>
+      <p>{{ about.text3 }}</p>
     </div>
   </div>
 </template>
@@ -53,33 +51,39 @@ export default {
 
 <style>
 .about-page {
-  display: grid;
-  grid-template-areas: "left right";
-  grid-template-columns: 1fr 1fr;
-  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
-.hairdressers {
+.about-page h1 {
+  text-align: center;
+}
+.about-row {
   display: flex;
   flex-direction: row;
-  grid-area: left;
-  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.hairdresser {
+figure img {
+  box-shadow: 0px 0px 10px 0px rgba(94, 94, 94, 0.65);
+  border-radius: 50%;
   background: white;
-  box-shadow: 1px 0.1px 8px black;
-  padding: 8px;
 }
-.hairdresser figcaption {
-  padding: 8px;
-  font-weight: bold;
+
+figcaption {
   text-align: center;
   bottom: 0;
 }
-.about-harstugan {
-  grid-area: right;
-}
-.about-h-title {
-}
+
 .about-text {
+  margin: 0 1em;
+}
+@media screen and (min-width: 905px) {
+  .about-page {
+    margin: 0 auto;
+    width: 70%;
+  }
+  .about-row {
+    flex-wrap: no-wrap;
+  }
 }
 </style>
