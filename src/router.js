@@ -4,12 +4,11 @@ import Home from "./components/Home.vue";
 const Prices = () => import("./components/Prices.vue");
 const Gallery = () => import("./components/Gallery.vue");
 const Products = () => import("./components/Products.vue");
-
+const About = () => import("./components/About.vue");
 
 Vue.use(Router);
 
 export default new Router({
-
   mode: "history",
   routes: [
     {
@@ -32,6 +31,10 @@ export default new Router({
       name: "Products",
       component: Products,
     },
+    {
+      path: "/om-oss",
+      name: "About",
+      component: About,
+    },
   ],
 });
-
