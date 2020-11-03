@@ -30,7 +30,7 @@
           <p id="caption"></p>
         </div>
 
-        <div class="column" v-for="(image, i) in products" :key="i">
+        <div class="column" v-for="(image, i) in products" :key="image.img.url">
           <img
             class="demo cursor"
             :src="image.img.url"
@@ -217,7 +217,7 @@ h2 {
 .modal-content {
   position: relative;
   background-color: #fefefe;
-  margin: auto;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -319,21 +319,15 @@ img.hover-shadow {
   }
   .column {
     float: left;
-    width: 25%;
+    width: 33%;
   }
   .modal-content {
     position: relative;
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    width: 50%;
+    width: 70%;
     max-width: 1200px;
-  }
-}
-@media screen and (max-width: 500px) {
-  .column {
-    float: left;
-    width: 100%;
   }
 }
 </style>

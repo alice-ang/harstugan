@@ -35,6 +35,9 @@ body {
   font-family: "Lato", sans-serif;
   font-weight: 300;
 }
+p {
+  font-size: 1.2rem;
+}
 h1,
 h2,
 h3,

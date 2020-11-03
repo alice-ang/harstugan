@@ -85,6 +85,7 @@ table td:first-child {
   font-weight: bold;
 }
 table td {
+  font-size: 1.2rem;
   padding: 0.3em 1em;
 }
 #map,
