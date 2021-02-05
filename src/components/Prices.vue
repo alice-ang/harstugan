@@ -3,7 +3,8 @@
   <!-- Tillägg för längre hår an axlöar-->
   <div class="price-tabs">
     <div class="image-wrapper">
-      <img src="../assets/img/bg1.jpg" alt="" />
+      <img id="desktop-img" src="../assets/img/bg1.jpg" alt="" />
+      <img id="mobile-img" src="../assets/img/mobile.jpg" alt="" />
       <div class="info">
         <h2>
           Ring <span class="underline">0587-100 34</span> för att boka tid!
@@ -188,7 +189,7 @@ export default {
   max-height: 80vh;
 }
 .image-wrapper .info {
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
   padding: 1em;
   transform: translate(-50%, -50%);
@@ -196,6 +197,12 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
+}
+#mobile-img {
+  display: block;
+}
+#desktop-img {
+  display: none;
 }
 .info i {
   color: var(--primary);
@@ -277,7 +284,7 @@ th {
   text-align: left;
   padding: 1em 0;
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 901px) {
   #categories {
     display: flex;
     flex-direction: row;
@@ -299,17 +306,31 @@ th {
     margin: 0 auto;
   }
   .image-wrapper {
-    max-height: 50vh;
+    max-height: 40vh;
+  }
+  #mobile-img {
+    display: none;
+  }
+  #desktop-img {
+    display: block;
   }
 }
-@media screen and (min-width: 400px) {
+
+@media screen and ((min-width: 400px) and (max-width: 900px)) {
   .image-wrapper {
     max-height: 60vh;
   }
+
   .active {
     color: var(--primary);
     font-weight: bold;
     border-top: 2px solid var(--primary);
+  }
+  #mobile-img {
+    display: block;
+  }
+  #desktop-img {
+    display: none;
   }
 }
 </style>

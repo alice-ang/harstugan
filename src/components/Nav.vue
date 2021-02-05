@@ -86,6 +86,7 @@ nav {
   margin: 0;
   flex-direction: column;
   list-style: none;
+  box-shadow: 0px 6px 9px -7px rgba(0, 0, 0, 0.81);
 }
 #mobile-menu li {
   padding: 1em;
@@ -109,7 +110,7 @@ nav ul li {
 }
 a {
   color: var(--primary);
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
   border-bottom: 2px solid white;
